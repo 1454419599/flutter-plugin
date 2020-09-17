@@ -48,6 +48,6 @@ android {
 
 dependencies {
     implementation files('libs/open_sdk_r8353806_lite.jar')
-    compileOnly files('libs/flutter.jar')
+    // compileOnly files('libs/flutter.jar')
     api 'androidx.legacy:legacy-support-v4:1.0.0'
 }
