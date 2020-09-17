@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.youlianghuiplugin">
+
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="n">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" /> <!-- 声明SDK所需要的组件 -->
+        <service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false" /> <!-- 请开发者注意字母的大小写，ADActivity，而不是AdActivity -->
+        <activity
+            android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.qq.e.ads.PortraitADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- <activity -->
+        <!-- android:name="com.qq.e.ads.LandscapeADActivity" -->
+        <!-- android:configChanges="keyboard|keyboardHidden|orientation|screenSize" -->
+        <!-- android:screenOrientation="landscape" /> -->
+        <activity
+            android:name="com.maodouyuedu.youlianghuiplugin.YouLiangHuiSplashActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoAnimationTheme">
+        </activity>
+        <activity
+            android:name="com.maodouyuedu.youlianghuiplugin.YouLiangHuiAutoSplashActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoAnimationTheme">
+            <meta-data
+                android:name="android.notch_support"
+                android:value="true"/>
+        </activity>
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true"/>
+    </application>
+
+</manifest>
