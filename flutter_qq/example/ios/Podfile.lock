@@ -1,35 +1,41 @@
 PODS:
   - Flutter (1.0.0)
+  - flutter_plugin_android_lifecycle (0.0.1):
+    - Flutter
   - flutter_qq (0.0.5):
     - Flutter
     - QQSDK
   - image_picker (0.0.1):
     - Flutter
-  - QQSDK (3.3.1)
+  - QQSDK (3.3.3)
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios`)
+  - Flutter (from `.symlinks/flutter/ios-release`)
+  - flutter_plugin_android_lifecycle (from `.symlinks/plugins/flutter_plugin_android_lifecycle/ios`)
   - flutter_qq (from `.symlinks/plugins/flutter_qq/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - QQSDK
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios"
+    :path: ".symlinks/flutter/ios-release"
+  flutter_plugin_android_lifecycle:
+    :path: ".symlinks/plugins/flutter_plugin_android_lifecycle/ios"
   flutter_qq:
     :path: ".symlinks/plugins/flutter_qq/ios"
   image_picker:
     :path: ".symlinks/plugins/image_picker/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
-  flutter_qq: c9de12c3b1064e11a093630a43d13cb7db4d44cb
-  image_picker: 16e5fec1fbc87fd3b297c53e4048521eaf17cd06
-  QQSDK: 2bb36f564c4771c3092ba9b7e6874651bf179656
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_plugin_android_lifecycle: dc0b544e129eebb77a6bfb1239d4d1c673a60a35
+  flutter_qq: fd560988a312c5c7c077f1f93980badf1de09eed
+  image_picker: 9c3312491f862b28d21ecd8fdf0ee14e601b3f09
+  QQSDK: 97a38fdbd3217626f0ef16321b67c4eb67e7bf9d
 
-PODFILE CHECKSUM: 1e5af4103afd21ca5ead147d7b81d06f494f51a2
+PODFILE CHECKSUM: 63f22366d3d95695baff8ead6eb706044c3c6251
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.8.4

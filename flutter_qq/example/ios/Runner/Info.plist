@@ -18,8 +18,6 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -33,6 +31,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>mqq</string>
@@ -58,14 +58,14 @@
 		<string>tencentapi.qq.reqContent</string>
 		<string>tencentapi.qzone.reqContent</string>
 	</array>
-  <key>NSMicrophoneUsageDescription</key>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>cameraUsageDesciption</string>
+	<key>NSMicrophoneUsageDescription</key>
 	<string>microphoneUsageDescription</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>photoLibraryDesciption</string>
-	<key>NSCameraUsageDescription</key>
-	<string>cameraUsageDesciption</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
