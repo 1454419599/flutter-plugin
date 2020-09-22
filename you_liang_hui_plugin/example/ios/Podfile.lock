@@ -1,11 +1,19 @@
 PODS:
   - Flutter (1.0.0)
+  - GDTMobSDK (4.10.10):
+    - GDTMobSDK/GDTMobSDK (= 4.10.10)
+  - GDTMobSDK/GDTMobSDK (4.10.10)
   - youlianghuiplugin (0.0.1):
     - Flutter
+    - GDTMobSDK
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - youlianghuiplugin (from `.symlinks/plugins/youlianghuiplugin/ios`)
+
+SPEC REPOS:
+  trunk:
+    - GDTMobSDK
 
 EXTERNAL SOURCES:
   Flutter:
@@ -15,7 +23,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  youlianghuiplugin: 2c484cb546bce7ba5ff7cd81b3dd8bb53e1cacbb
+  GDTMobSDK: 374d0d956687ed5e2eb96ff98d3b5d814074b255
+  youlianghuiplugin: 6f5830f9a51745df6bd73a70a75f0bff162abc42
 
 PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
 

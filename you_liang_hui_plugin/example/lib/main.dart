@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'dart:io';
 
 import 'package:youlianghuiplugin/youlianghuiplugin.dart';
 //import 'package:youlianghuiplugin_example/read.dart';
@@ -33,7 +34,6 @@ class _MyAppState extends State<MyApp> {
     _adKey = GlobalKey<YouLiangHuiNativeExpressADViewState>();
   }
 
-
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
     String platformVersion;
@@ -55,26 +55,40 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _initYouLiangHui() {
-    Youlianghuiplugin.initYouLiangHui(
+    if (Platform.isAndroid) {
+      Youlianghuiplugin.initYouLiangHui(
         "1110153128",
         rewardVideoId: "6071407512248085",
         splashPosId: "2061723943842950",
-        nativeExpress: [{
-          "posId": "6051116957071653",
-          "adWidth": adWidth,
-          "adHeight": adHeight,
-        }],
+        nativeExpress: [
+          {
+            "posId": "6051116957071653",
+            "adWidth": adWidth,
+            "adHeight": adHeight,
+          }
+        ],
 //        nativeUnifiedIds: ["4091704614425969"]
-    );
+      );
+    } else if (Platform.isIOS) {
+      Youlianghuiplugin.initYouLiangHui(
+        "1110331335",
+        rewardVideoId: "6011734329421185",
+        splashPosId: "6041633319427131",
+        // nativeExpress: [{
+        //   "posId": "6051116957071653",
+        //   "adWidth": adWidth,
+        //   "adHeight": adHeight,
+        // }],
+//        nativeUnifiedIds: ["4091704614425969"]
+      );
+    }
   }
 
   void _showRewardVideoAD() {
-    Youlianghuiplugin.showRewardVideoAD(
-      adEventCallback: (event, data) {
-        print(event);
-        print(data);
-      }
-    );
+    Youlianghuiplugin.showRewardVideoAD(adEventCallback: (event, data) {
+      print(event);
+      print(data);
+    });
   }
 
   /// 显示开屏广告
@@ -126,7 +140,8 @@ class _MyAppState extends State<MyApp> {
             ),
             RaisedButton(
               child: Text("显示开屏广告"),
-              onPressed: () => showSplashAdYouLiangHui(closeFun: _closeSplashView),
+              onPressed: () =>
+                  showSplashAdYouLiangHui(closeFun: _closeSplashView),
             ),
             RaisedButton(
               child: Text("自动显示开屏广告"),
@@ -138,9 +153,11 @@ class _MyAppState extends State<MyApp> {
             ),
             RaisedButton(
               child: Text("显示广告"),
-              onPressed: () {setState(() {
-                showAd = !showAd;
-              });},
+              onPressed: () {
+                setState(() {
+                  showAd = !showAd;
+                });
+              },
             ),
             RaisedButton(
               child: Text("刷新广告"),
@@ -272,7 +289,6 @@ class _MyAppState extends State<MyApp> {
               height: 100,
               color: Colors.deepOrange,
             ),
-
 
 //            Expanded(child: AdView(viewType: "com.maodouyuedu.youlianghuiplugin/NativeUnifiedAD",)),
 //            if (_controller?.textureId != null)

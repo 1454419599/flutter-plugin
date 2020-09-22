@@ -80,16 +80,19 @@
     }
     else if(shareType == SHARE_TO_QQ_TYPE_IMAGE){
         // localImage
-        UIImage *image = nil;
-        if(imageLocalUrl.length) {
-            if ([[NSFileManager defaultManager] fileExistsAtPath:imageLocalUrl]){
-                image = [UIImage imageWithContentsOfFile:imageLocalUrl];
+        @try {
+            UIImage *image = nil;
+            if(imageLocalUrl.length) {
+                if ([[NSFileManager defaultManager] fileExistsAtPath:imageLocalUrl]){
+                    image = [UIImage imageWithContentsOfFile:imageLocalUrl];
+                }
             }
+            NSData *imageData = UIImageJPEGRepresentation(image, 1);
+            NSData *previewImageData = UIImageJPEGRepresentation(image, 0.20);
+            message = [QQApiImageObject objectWithData:imageData previewImageData:previewImageData title:@"" description:@""];
+        } @catch (NSException *exception) {
+            NSLog(@"%@", exception);
         }
-        NSData *imageData = UIImageJPEGRepresentation(image, 0.80);
-        NSData *previewImageData = UIImageJPEGRepresentation(image, 0.20);
-        message = [QQApiImageObject objectWithData:imageData previewImageData:previewImageData title:title description:description];
-
     }
     else if (shareType == SHARE_TO_QQ_TYPE_AUDIO){
         // audio

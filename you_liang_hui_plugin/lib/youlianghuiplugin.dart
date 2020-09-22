@@ -185,7 +185,7 @@ class Youlianghuiplugin {
         }
         _showSplashADEventCallback(adEvent, data);
       }
-    }else if (methodName == _autoSplashADMethodName &&
+    } else if (methodName == _autoSplashADMethodName &&
         _autoSplashADEventCallback != null) {
       if (data is Map) {
         ADEvent adEvent = ADEvent.Unknown;

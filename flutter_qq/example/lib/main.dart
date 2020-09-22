@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
       var qqResult = await FlutterQq.login();
       var output;
       if (qqResult.code == 0) {
-        if(qqResult.response==null){
+        if (qqResult.response == null) {
           output = "登录成功qqResult.response==null";
           return;
         }
@@ -61,39 +61,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<Null> _handleShareToQQ() async {
-     ShareQQContent shareContent = new ShareQQContent(
-       shareType: SHARE_TO_QQ_TYPE.DEFAULT,
-       title: "测试title",
-       targetUrl: "https://www.baidu.com",
-       summary: "测试summary",
-       imageUrl: "http://inews.gtimg.com/newsapp_bt/0/876781763/1000",
-     );
-    try {
-      var qqResult = await FlutterQq.shareToQQ(shareContent);
-      var output;
-      if (qqResult.code == 0) {
-        output = "分享成功";
-      } else if (qqResult.code == 1) {
-        output = "分享失败" + qqResult.message;
-      } else {
-        output = "用户取消";
-      }
-      setState(() {
-        _output = output;
-      });
-    } catch (error) {
-      print("flutter_plugin_qq_example:" + error.toString());
-
-    }
-  }
-
-  Future<Null> _handleShareToQQWithLocalImage() async {
     ShareQQContent shareContent = new ShareQQContent(
-        shareType: SHARE_TO_QQ_TYPE.IMAGE,
-        title: "测试title",
-        targetUrl: "https://www.baidu.com",
-        summary: "测试summary",
-        imageLocalUrl: _images[0].path
+      shareType: SHARE_TO_QQ_TYPE.DEFAULT,
+      title: "测试title",
+      targetUrl: "https://www.baidu.com",
+      summary: "测试summary",
+      imageUrl: "http://inews.gtimg.com/newsapp_bt/0/876781763/1000",
     );
     try {
       var qqResult = await FlutterQq.shareToQQ(shareContent);
@@ -110,7 +83,31 @@ class _MyAppState extends State<MyApp> {
       });
     } catch (error) {
       print("flutter_plugin_qq_example:" + error.toString());
+    }
+  }
 
+  Future<Null> _handleShareToQQWithLocalImage() async {
+    ShareQQContent shareContent = new ShareQQContent(
+        shareType: SHARE_TO_QQ_TYPE.IMAGE,
+        title: "测试title",
+        targetUrl: "https://www.baidu.com",
+        summary: "测试summary",
+        imageLocalUrl: _images[0].path);
+    try {
+      var qqResult = await FlutterQq.shareToQQ(shareContent);
+      var output;
+      if (qqResult.code == 0) {
+        output = "分享成功";
+      } else if (qqResult.code == 1) {
+        output = "分享失败" + qqResult.message;
+      } else {
+        output = "用户取消";
+      }
+      setState(() {
+        _output = output;
+      });
+    } catch (error) {
+      print("flutter_plugin_qq_example:" + error.toString());
     }
   }
 
@@ -142,7 +139,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterQq.registerQQ('1107493622');
+    // FlutterQq.registerQQ('1107493622');
+    FlutterQq.registerQQ('101805764');
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
