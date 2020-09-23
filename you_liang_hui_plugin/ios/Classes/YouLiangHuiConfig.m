@@ -20,6 +20,10 @@
     return @"showRewardVideoAD";
 }
 
++ (NSString *) autoSplashMethodName {
+    return @"autoSplashAD";
+}
+
 + (NSString *) appId {
     return APP_ID;
 }

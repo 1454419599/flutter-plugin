@@ -27,6 +27,7 @@ typedef enum  {
 
 + (NSString *) initYouLiangHuiMethodName;
 + (NSString *) showRewardVideoMethodName;
++ (NSString *) autoSplashMethodName;
     
 + (NSString *) appId;
 + (void) appId: (NSString *) value;

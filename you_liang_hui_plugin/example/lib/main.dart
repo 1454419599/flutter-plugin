@@ -119,7 +119,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _autoSplashAd() {
-    Youlianghuiplugin.autoSplashAd();
+    Youlianghuiplugin.autoSplashAd(
+      adEventCallback: (event, params) {
+        print(event);
+        print(params);
+      },
+    );
   }
 
   @override

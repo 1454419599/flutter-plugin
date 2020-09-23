@@ -1,6 +1,8 @@
 #import "YoulianghuipluginPlugin.h"
 #import "YouLiangHuiConfig.h"
 #import "YouLiangHuiRewardVideo.h"
+#import "YouLiangHuiSplash.h"
+#import "GDTSDKConfig.h"
 
 @interface YoulianghuipluginPlugin ()
 @end
@@ -10,6 +12,7 @@ static NSString* _basicMessageChannelName = @"YouLiangHuiBasicMessageChannelPlug
 static FlutterBasicMessageChannel* _messageChannel;
 static UIViewController* _controller;
 static YouLiangHuiRewardVideo* _youLiangHuiRewardVideo;
+static YouLiangHuiSplash *_youLiangHuiSplash;
 
 @implementation YoulianghuipluginPlugin
 
@@ -45,6 +48,7 @@ static YouLiangHuiRewardVideo* _youLiangHuiRewardVideo;
                   if ([arguments[@"appId"] isKindOfClass:[NSString class]]) {
                       NSString *appId = arguments[@"appId"];
                       [YouLiangHuiConfig appId:appId];
+                      [GDTSDKConfig registerAppId:[YouLiangHuiConfig appId]];
                   } else {
                       result([FlutterError errorWithCode:@"-10002" message:@"arguments[appId] 应为 String" details:arguments]);
                   }
@@ -68,6 +72,8 @@ static YouLiangHuiRewardVideo* _youLiangHuiRewardVideo;
                       if ([splash[@"posId"] isKindOfClass:[NSString class] ]) {
                           NSString *posId = splash[@"posId"];
                           [YouLiangHuiConfig splashId:posId];
+                          _youLiangHuiSplash = [[YouLiangHuiSplash alloc] init];
+                          [_youLiangHuiSplash initSplashAd];
                       } else {
                           result([FlutterError errorWithCode:@"-10007" message:@"arguments[splash][posId] 应为 String" details:splash]);
                       }
@@ -108,6 +114,8 @@ void (^messageHandler)(id, FlutterReply) = ^(id message, FlutterReply callback) 
         if (_youLiangHuiRewardVideo != nil) {
             [_youLiangHuiRewardVideo showAd];
         }
+    } else if ([[YouLiangHuiConfig autoSplashMethodName] isEqualToString:methodName]) {
+        [_youLiangHuiSplash showAd];
     }
 };
 

@@ -32,13 +32,13 @@
         maxRequestNum = 30;
         currentRequestNum = 0;
         [self initAd];
-        [self mLoadAd];
+//        [self mLoadAd];
     }
     return self;
 }
 
 - (void)initAd {
-    self.rewardVideoAd = [[[GDTRewardVideoAd alloc] init] initWithAppId:[YouLiangHuiConfig appId] placementId:[YouLiangHuiConfig rewardVideoId]] ;
+    self.rewardVideoAd = [[GDTRewardVideoAd alloc] initWithPlacementId:[YouLiangHuiConfig rewardVideoId]];
     self.rewardVideoAd.delegate = self;
 }
 

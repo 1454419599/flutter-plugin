@@ -19,8 +19,8 @@
             android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:background="#fff"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/app_logo"

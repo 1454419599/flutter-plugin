@@ -107,7 +107,41 @@ class Youlianghuiplugin {
     });
   }
 
+  static ADEvent str2Enum(String type) {
+    ADEvent aDEvent = ADEvent.Unknown;
+    switch (type) {
+      case "Load":
+        aDEvent = ADEvent.Load;
+        break;
+      case "Show":
+        aDEvent = ADEvent.Show;
+        break;
+      case "Expose":
+        aDEvent = ADEvent.Expose;
+        break;
+      case "Reward":
+        aDEvent = ADEvent.Reward;
+        break;
+      case "Click":
+        aDEvent = ADEvent.Click;
+        break;
+      case "Complete":
+        aDEvent = ADEvent.Complete;
+        break;
+      case "Close":
+        aDEvent = ADEvent.Close;
+        break;
+      case "Error":
+        aDEvent = ADEvent.Error;
+        break;
+    }
+
+    return aDEvent;
+  }
+
   static Future<void> messageHandler(dynamic message) async {
+    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    print(message);
     String methodName = message["method"];
     String type = message["type"];
     dynamic data = message["data"];
@@ -117,29 +151,7 @@ class Youlianghuiplugin {
         ADEvent rewardADEvent = ADEvent.Unknown;
         if (data is Map) {
           String adStatus = data["adStatus"];
-          switch (adStatus) {
-            case "Load":
-              rewardADEvent = ADEvent.Load;
-              break;
-            case "Show":
-              rewardADEvent = ADEvent.Show;
-              break;
-            case "Expose":
-              rewardADEvent = ADEvent.Expose;
-              break;
-            case "Reward":
-              rewardADEvent = ADEvent.Reward;
-              break;
-            case "Click":
-              rewardADEvent = ADEvent.Click;
-              break;
-            case "Complete":
-              rewardADEvent = ADEvent.Complete;
-              break;
-            case "Close":
-              rewardADEvent = ADEvent.Close;
-              break;
-          }
+          rewardADEvent = str2Enum(adStatus);
         }
         _rewardVideoADEventCallback(rewardADEvent, data);
       } else if (type == "ERROR") {
@@ -150,16 +162,7 @@ class Youlianghuiplugin {
       if (data is Map) {
         ADEvent adEvent = ADEvent.Unknown;
         String adStatus = data["adStatus"];
-        switch (adStatus) {
-          case "Load":
-            adEvent = ADEvent.Load;
-            break;
-          case "Error":
-            adEvent = ADEvent.Show;
-            break;
-          default:
-            break;
-        }
+        adEvent = str2Enum(adStatus);
         _loadSplashADEventCallback(adEvent, data);
       }
     } else if (methodName == _showSplashADMethodName &&
@@ -167,38 +170,21 @@ class Youlianghuiplugin {
       if (data is Map) {
         ADEvent adEvent = ADEvent.Unknown;
         String adStatus = data["adStatus"];
-        switch (adStatus) {
-          case "Click":
-            adEvent = ADEvent.Click;
-            break;
-          case "Close":
-            adEvent = ADEvent.Close;
-            break;
-          case "Expose":
-            adEvent = ADEvent.Expose;
-            break;
-          case "Show":
-            adEvent = ADEvent.Show;
-            break;
-          default:
-            break;
-        }
+        adEvent = str2Enum(adStatus);
         _showSplashADEventCallback(adEvent, data);
       }
     } else if (methodName == _autoSplashADMethodName &&
         _autoSplashADEventCallback != null) {
-      if (data is Map) {
-        ADEvent adEvent = ADEvent.Unknown;
-        String adStatus = data["adStatus"];
-        switch (adStatus) {
-          case "Close":
-            adEvent = ADEvent.Close;
-            break;
-          default:
-            break;
+      ADEvent adEvent = ADEvent.Unknown;
+      if (type == "SUCCESS") {
+        if (data is Map) {
+          String adStatus = data["adStatus"];
+          adEvent = str2Enum(adStatus);
         }
-        _autoSplashADEventCallback(adEvent, data);
+      } else if (type == "ERROR") {
+        adEvent = ADEvent.Error;
       }
+      _autoSplashADEventCallback(adEvent, data);
     }
   }
 }
