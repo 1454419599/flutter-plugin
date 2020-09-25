@@ -3,6 +3,8 @@
 #import "YouLiangHuiRewardVideo.h"
 #import "YouLiangHuiSplash.h"
 #import "GDTSDKConfig.h"
+#import "YouLiangHuiUnifiedNative.h"
+#import "YouLiangHuiUnifiedNativeFactory.h"
 
 @interface YoulianghuipluginPlugin ()
 @end
@@ -32,6 +34,8 @@ static YouLiangHuiSplash *_youLiangHuiSplash;
     
   YoulianghuipluginPlugin* instance = [[YoulianghuipluginPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];
+    
+    [registrar registerViewFactory:[[YouLiangHuiUnifiedNativeFactory alloc] initWithBinaryMessenger:[registrar messenger]] withId:[YouLiangHuiConfig nativeUnifiedViewName]];
     
     _messageChannel = [FlutterBasicMessageChannel messageChannelWithName:_basicMessageChannelName binaryMessenger:[registrar messenger]];
     [_messageChannel setMessageHandler:messageHandler];
@@ -83,13 +87,23 @@ static YouLiangHuiSplash *_youLiangHuiSplash;
               }
               
               
-              if (arguments[@"nativeExpress"] != nil) {
-                  if ([arguments[@"nativeExpress"] isKindOfClass:[NSArray class]]) {
-//                      NSArray *nativeExpress = arguments[@"nativeExpress"];
-//                      [YouLiangHuiConfig rewardVideoId:rewardVideoId];
-                  } else {
-                      result([FlutterError errorWithCode:@"-10005" message:@"arguments[nativeExpress] 应为 List<Array>" details:arguments]);
-                  }
+//              if (arguments[@"nativeExpress"] != nil) {
+//                  if ([arguments[@"nativeExpress"] isKindOfClass:[NSArray class]]) {
+////                      NSArray *nativeExpress = arguments[@"nativeExpress"];
+////                      [YouLiangHuiConfig rewardVideoId:rewardVideoId];
+//                  } else {
+//                      result([FlutterError errorWithCode:@"-10005" message:@"arguments[nativeExpress] 应为 List<Array>" details:arguments]);
+//                  }
+//              }
+              if (arguments[@"nativeUnifiedIds"] != nil) {
+                if ([arguments[@"nativeUnifiedIds"] isKindOfClass:[NSArray class]]) {
+                      NSArray *nativeExpress = arguments[@"nativeUnifiedIds"];
+                    for (NSString *posId in nativeExpress) {
+                        [YouLiangHuiUnifiedNative getShareInstance:posId];
+                    }
+                } else {
+                    result([FlutterError errorWithCode:@"-10003" message:@"arguments[nativeUnifiedIds] 应为 List<String>" details:arguments]);
+                }
               }
               
           } @catch (NSException *exception) {

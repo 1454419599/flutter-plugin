@@ -3,7 +3,7 @@ PODS:
   - GDTMobSDK (4.11.11):
     - GDTMobSDK/GDTMobSDK (= 4.11.11)
   - GDTMobSDK/GDTMobSDK (4.11.11)
-  - youlianghuiplugin (0.0.6):
+  - youlianghuiplugin (0.0.7):
     - Flutter
     - GDTMobSDK (~> 4.11.11)
 
@@ -24,7 +24,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   GDTMobSDK: 5603f2ed5c565f798b9dd13d3dbfb582594ea93a
-  youlianghuiplugin: 1f3a6ca6b890321b4fad5f975956c505b710435d
+  youlianghuiplugin: 9247789d96e5297abc799e1684a59a4289dacbd3
 
 PODFILE CHECKSUM: b1f7a399522c118a74b177b13c01eca692aa7e6d
 

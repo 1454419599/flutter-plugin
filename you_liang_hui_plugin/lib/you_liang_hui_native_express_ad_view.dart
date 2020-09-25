@@ -1,36 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
-class YouLiangHuiNativeAdData {
+class YouLiangHuiNativeExpressAdData {
   String desc;
   String title;
 
-  YouLiangHuiNativeAdData({
-    this.desc,
-    this.title
-  });
+  YouLiangHuiNativeExpressAdData({this.desc, this.title});
 
-  static YouLiangHuiNativeAdData fromMap(Map map) {
-    return YouLiangHuiNativeAdData(
-      desc: map["desc"],
-      title: map["title"]
-    );
+  static YouLiangHuiNativeExpressAdData fromMap(Map map) {
+    return YouLiangHuiNativeExpressAdData(
+        desc: map["desc"], title: map["title"]);
   }
 }
 
-typedef AdEventCallback = void Function(YouLiangHuiNativeAdData nativeAdData);
+typedef NativeExpressAdEventCallback = void Function(
+    YouLiangHuiNativeExpressAdData nativeAdData);
 
 class YouLiangHuiNativeExpressADView extends StatefulWidget {
   ///模板1.0广告位Id
   final String posId;
+
   ///广告宽dp
   final double adWidth;
+
   ///广告高dp
   final double adHeight;
 
 //  Widget child;
-  final AdEventCallback adEventCallback;
+  final NativeExpressAdEventCallback adEventCallback;
 
   YouLiangHuiNativeExpressADView({
     Key key,
@@ -39,15 +36,17 @@ class YouLiangHuiNativeExpressADView extends StatefulWidget {
     this.adWidth,
     this.adHeight,
     this.adEventCallback,
-  }): super(key: key);
+  }) : super(key: key);
 
   @override
-  YouLiangHuiNativeExpressADViewState createState() => YouLiangHuiNativeExpressADViewState();
+  YouLiangHuiNativeExpressADViewState createState() =>
+      YouLiangHuiNativeExpressADViewState();
 }
 
-class YouLiangHuiNativeExpressADViewState extends State<YouLiangHuiNativeExpressADView>
-    with WidgetsBindingObserver {
-  static String channelName = "com.maodouyuedu.youlianghuiplugin/NativeExpressAD";
+class YouLiangHuiNativeExpressADViewState
+    extends State<YouLiangHuiNativeExpressADView> with WidgetsBindingObserver {
+  static String channelName =
+      "com.maodouyuedu.youlianghuiplugin/NativeExpressAD";
   BasicMessageChannel _channel;
 
   @override
@@ -71,7 +70,8 @@ class YouLiangHuiNativeExpressADViewState extends State<YouLiangHuiNativeExpress
   }
 
   void _onPlatformViewCreated(int id) {
-    _channel = BasicMessageChannel("${channelName}_$id", StandardMessageCodec());
+    _channel =
+        BasicMessageChannel("${channelName}_$id", StandardMessageCodec());
     _channel.setMessageHandler(_onMessage);
   }
 
@@ -84,12 +84,11 @@ class YouLiangHuiNativeExpressADViewState extends State<YouLiangHuiNativeExpress
 
     if (message["type"] == "AdData") {
       if (widget.adEventCallback != null && message["data"] is Map) {
-        YouLiangHuiNativeAdData nativeAdData = YouLiangHuiNativeAdData.fromMap(message["data"]);
+        YouLiangHuiNativeExpressAdData nativeAdData =
+            YouLiangHuiNativeExpressAdData.fromMap(message["data"]);
         widget.adEventCallback(nativeAdData);
       }
-    } else if (message["type"] == "NoAd") {
-
-    }
+    } else if (message["type"] == "NoAd") {}
   }
 
   double px2dp(num px) {
@@ -114,7 +113,7 @@ class YouLiangHuiNativeExpressADViewState extends State<YouLiangHuiNativeExpress
         },
         creationParamsCodec: const StandardMessageCodec(),
         onPlatformViewCreated: _onPlatformViewCreated,
-      ) ,
+      ),
     );
   }
 }

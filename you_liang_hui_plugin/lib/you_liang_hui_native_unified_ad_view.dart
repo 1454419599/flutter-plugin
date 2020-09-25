@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:io';
 
-enum YouLiangHuiNativeAdType {
+enum YouLiangHuiNativeUnifiedAdType {
   native2Image2Text,
   nativeVideo,
   native3Image,
   native1Image2Text,
 }
 
-class YouLiangHuiNativeAdData {
+class YouLiangHuiNativeUnifiedAdData {
   String desc;
   String title;
   String icon;
@@ -20,7 +21,7 @@ class YouLiangHuiNativeAdData {
   int downloadCount;
   dynamic appPrice;
 
-  YouLiangHuiNativeAdData({
+  YouLiangHuiNativeUnifiedAdData({
     this.desc,
     this.title,
     this.icon,
@@ -30,11 +31,11 @@ class YouLiangHuiNativeAdData {
     this.pictureWidth,
     this.appPrice,
     this.appScore,
-    this.downloadCount
+    this.downloadCount,
   });
 
-  static YouLiangHuiNativeAdData fromMap(Map map) {
-    return YouLiangHuiNativeAdData(
+  static YouLiangHuiNativeUnifiedAdData fromMap(Map map) {
+    return YouLiangHuiNativeUnifiedAdData(
       desc: map["desc"],
       title: map["title"],
       icon: map["icon"],
@@ -49,28 +50,35 @@ class YouLiangHuiNativeAdData {
   }
 }
 
-typedef AdEventCallback = void Function(YouLiangHuiNativeAdType nativeAdType, YouLiangHuiNativeAdData nativeAdData, String adButtonText);
+typedef NativeUnifiedAdEventCallback = void Function(
+    YouLiangHuiNativeUnifiedAdType nativeAdType,
+    YouLiangHuiNativeUnifiedAdData nativeAdData,
+    String adButtonText);
 typedef AdButtonTextCallback = void Function(String adButtonText);
 
 class YouLiangHuiNativeUnifiedADView extends StatefulWidget {
   final String posId;
-  final int mediaViewWidth;
-  final int mediaViewHeight;
-  final int clickableViewWidth;
-  final int clickableViewHeight;
-  final int clickableViewTop;
-  final int clickableViewLeft;
-  final int clickableViewRight;
-  final int clickableViewBottom;
+  final double mediaViewTop;
+  final double mediaViewLeft;
+  final double mediaViewWidth;
+  final double mediaViewHeight;
+  final double clickableViewWidth;
+  final double clickableViewHeight;
+  final double clickableViewTop;
+  final double clickableViewLeft;
+  final double clickableViewRight;
+  final double clickableViewBottom;
 
-  Widget child;
-  AdEventCallback adEventCallback;
-  AdButtonTextCallback adButtonTextCallback;
+  final Widget child;
+  final NativeUnifiedAdEventCallback adEventCallback;
+  final AdButtonTextCallback adButtonTextCallback;
 
   YouLiangHuiNativeUnifiedADView({
     Key key,
     this.child,
     @required this.posId,
+    this.mediaViewTop,
+    this.mediaViewLeft,
     this.mediaViewWidth,
     this.mediaViewHeight,
     this.clickableViewWidth,
@@ -80,16 +88,18 @@ class YouLiangHuiNativeUnifiedADView extends StatefulWidget {
     this.clickableViewRight,
     this.clickableViewBottom,
     this.adEventCallback,
-    this.adButtonTextCallback
-  }): super(key: key);
+    this.adButtonTextCallback,
+  }) : super(key: key);
 
   @override
-  YouLiangHuiNativeUnifiedADViewState createState() => YouLiangHuiNativeUnifiedADViewState();
+  YouLiangHuiNativeUnifiedADViewState createState() =>
+      YouLiangHuiNativeUnifiedADViewState();
 }
 
-class YouLiangHuiNativeUnifiedADViewState extends State<YouLiangHuiNativeUnifiedADView>
-    with WidgetsBindingObserver {
-  static String channelName = "com.maodouyuedu.youlianghuiplugin/NativeUnifiedAD";
+class YouLiangHuiNativeUnifiedADViewState
+    extends State<YouLiangHuiNativeUnifiedADView> with WidgetsBindingObserver {
+  static String channelName =
+      "com.maodouyuedu.youlianghuiplugin/NativeUnifiedAD";
   BasicMessageChannel _channel;
 
   @override
@@ -113,32 +123,39 @@ class YouLiangHuiNativeUnifiedADViewState extends State<YouLiangHuiNativeUnified
   }
 
   void _onPlatformViewCreated(int id) {
-    _channel = BasicMessageChannel("${channelName}_$id", StandardMessageCodec());
+    _channel =
+        BasicMessageChannel("${channelName}_$id", StandardMessageCodec());
     _channel.setMessageHandler(_onMessage);
   }
 
   Future<void> reLoad() => _channel.send("reLoad");
   Future<void> play() => _channel.send("play");
   Future<void> stop() => _channel.send("stop");
+  Future<void> disposeAd() => _channel.send("disposeAd");
 
-  Future<void> _onMessage(dynamic message) {
+  Future<dynamic> _onMessage(dynamic message) async {
     print("_onMessage $message");
 
     if (message["type"] == "AdData") {
       if (widget.adEventCallback != null && message["data"] is Map) {
-        YouLiangHuiNativeAdData nativeAdData = YouLiangHuiNativeAdData.fromMap(message["data"]);
-        widget.adEventCallback(YouLiangHuiNativeAdType.values[int.parse(message["data"]["type"]) - 1], nativeAdData, message["adButtonText"]);
+        YouLiangHuiNativeUnifiedAdData nativeAdData =
+            YouLiangHuiNativeUnifiedAdData.fromMap(message["data"]);
+        widget.adEventCallback(
+            YouLiangHuiNativeUnifiedAdType
+                .values[int.parse(message["data"]["type"]) - 1],
+            nativeAdData,
+            message["adButtonText"]);
       }
     } else if (message["type"] == "AdButtonText") {
       if (widget.adButtonTextCallback != null) {
         widget.adButtonTextCallback(message["adButtonText"]);
       }
     } else if (message["type"] == "NoAd") {
-
+      print("没有广告");
     }
   }
 
-  double px2dp(int px) {
+  double px2dp(num px) {
     if (px is int)
       return px / MediaQuery.of(context).devicePixelRatio;
     else
@@ -149,7 +166,8 @@ class YouLiangHuiNativeUnifiedADViewState extends State<YouLiangHuiNativeUnified
   Widget build(BuildContext context) {
     print("build");
     return Stack(
-//      fit: StackFit.expand,
+      fit: StackFit.expand,
+      overflow: Overflow.clip,
       children: <Widget>[
         Padding(
           padding: EdgeInsets.fromLTRB(
@@ -160,22 +178,44 @@ class YouLiangHuiNativeUnifiedADViewState extends State<YouLiangHuiNativeUnified
           ),
           child: widget.child,
         ),
-        AndroidView(
-          viewType: channelName,
-          creationParams: {
-            "posId": widget.posId,
-            "mediaViewWidth": widget.mediaViewWidth,
-            "mediaViewHeight": widget.mediaViewHeight,
-            "clickableViewWidth": widget.clickableViewWidth,
-            "clickableViewHeight": widget.clickableViewHeight,
-            "clickableViewTop": widget.clickableViewTop,
-            "clickableViewLeft": widget.clickableViewLeft,
-            "clickableViewRight": widget.clickableViewRight,
-            "clickableViewBottom": widget.clickableViewBottom,
-          },
-          creationParamsCodec: const StandardMessageCodec(),
-          onPlatformViewCreated: _onPlatformViewCreated,
-        ),
+        if (Platform.isAndroid)
+          AndroidView(
+            viewType: channelName,
+            creationParams: {
+              "posId": widget.posId,
+              "mediaViewTop": widget.mediaViewTop.toInt(),
+              "mediaViewLeft": widget.mediaViewLeft.toInt(),
+              "mediaViewWidth": widget.mediaViewWidth.toInt(),
+              "mediaViewHeight": widget.mediaViewHeight.toInt(),
+              "clickableViewWidth": widget.clickableViewWidth.toInt(),
+              "clickableViewHeight": widget.clickableViewHeight.toInt(),
+              "clickableViewTop": widget.clickableViewTop.toInt(),
+              "clickableViewLeft": widget.clickableViewLeft.toInt(),
+              "clickableViewRight": widget.clickableViewRight.toInt(),
+              "clickableViewBottom": widget.clickableViewBottom.toInt(),
+            },
+            creationParamsCodec: const StandardMessageCodec(),
+            onPlatformViewCreated: _onPlatformViewCreated,
+          ),
+        if (Platform.isIOS)
+          UiKitView(
+            viewType: channelName,
+            creationParams: {
+              "posId": widget.posId,
+              "mediaViewTop": widget.mediaViewTop,
+              "mediaViewLeft": widget.mediaViewLeft,
+              "mediaViewWidth": widget.mediaViewWidth,
+              "mediaViewHeight": widget.mediaViewHeight,
+              "clickableViewWidth": widget.clickableViewWidth,
+              "clickableViewHeight": widget.clickableViewHeight,
+              "clickableViewTop": widget.clickableViewTop,
+              "clickableViewLeft": widget.clickableViewLeft,
+              "clickableViewRight": widget.clickableViewRight,
+              "clickableViewBottom": widget.clickableViewBottom,
+            },
+            creationParamsCodec: const StandardMessageCodec(),
+            onPlatformViewCreated: _onPlatformViewCreated,
+          ),
       ],
     );
   }

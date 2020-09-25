@@ -4,10 +4,10 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'youlianghuiplugin'
-  s.version          = '0.0.6'
+  s.version          = '0.0.7'
   s.summary          = 'A new Flutter plugin.'
   s.description      = <<-DESC
-A new Flutter plugin.
+A new Flutter plugin for You Liang Hui SDK.
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }
@@ -18,7 +18,8 @@ A new Flutter plugin.
   s.dependency 'Flutter'
   s.dependency 'GDTMobSDK', '~> 4.11.11'
   # s.dependency 'GDTMobSDK'
-  s.platform = :ios, '9.0'
+  s.ios.deployment_target = '9.0'
+  # s.platform = :ios, '9.0'
   s.static_framework = true
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.

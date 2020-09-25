@@ -50,7 +50,7 @@
 - (void)showAd {
     NSLog(@"isLoad: %d, isAutoPlay: %d, currentRequestNum: %d", isLoad, isAutoPlay, currentRequestNum);
     if (isLoad) {
-        [self.rewardVideoAd showAdFromRootViewController:[UIApplication sharedApplication].delegate.window.rootViewController];
+        [self.rewardVideoAd showAdFromRootViewController:[YouLiangHuiConfig findCurrentShowingViewController]];
     } else {
         isAutoPlay = YES;
         [self mLoadAd];

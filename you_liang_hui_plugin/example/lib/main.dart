@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:youlianghuiplugin/you_liang_hui_native_unified_ad_view.dart';
 import 'dart:async';
 import 'dart:io';
 
 import 'package:youlianghuiplugin/youlianghuiplugin.dart';
-//import 'package:youlianghuiplugin_example/read.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,16 +22,19 @@ class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
 
   bool showAd = false;
-  YouLiangHuiNativeAdData nativeAdData;
+  bool showIosAd = false;
+  // YouLiangHuiNativeAdData nativeAdData;
   String adButtonText;
   int number = 0;
-  GlobalKey<YouLiangHuiNativeExpressADViewState> _adKey;
+  // GlobalKey<YouLiangHuiNativeUnifiedADViewState> _adKey;
+  GlobalKey<YouLiangHuiNativeUnifiedADViewState> _adKey;
 
   @override
   void initState() {
     super.initState();
 //    initPlatformState();
-    _adKey = GlobalKey<YouLiangHuiNativeExpressADViewState>();
+    // _adKey = GlobalKey<YouLiangHuiNativeExpressADViewState>();
+    _adKey = GlobalKey<YouLiangHuiNativeUnifiedADViewState>();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -79,7 +82,10 @@ class _MyAppState extends State<MyApp> {
         //   "adWidth": adWidth,
         //   "adHeight": adHeight,
         // }],
-//        nativeUnifiedIds: ["4091704614425969"]
+        nativeUnifiedIds: [
+          "3031938434285412",
+          "4001630464480476",
+        ],
       );
     }
   }
@@ -191,117 +197,50 @@ class _MyAppState extends State<MyApp> {
               },
             ),
             if (showAd)
-              SizedBox(
-                width: adWidth,
-                height: adHeight * 2,
-                child: YouLiangHuiNativeExpressADView(
-                  key: _adKey,
-//                  posId: "1021618952336342",
-                  posId: "6051116957071653",
-//                  posId: "4031501690347059",
-                  adWidth: adWidth,
-                  adHeight: adHeight,
-                  adEventCallback: (nativeAdData) {
-                    print(nativeAdData);
-                  },
-                ),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 20,
+                      left: 10,
+                    ),
+                    child: SizedBox(
+                      width: adWidth,
+                      height: adHeight * 2,
+                      child: YouLiangHuiNativeUnifiedADView(
+                        key: _adKey,
+                        posId: "3031938434285412",
+                        // posId: "4001630464480476",
+                        mediaViewWidth: adWidth,
+                        mediaViewHeight: adHeight,
+                        adEventCallback:
+                            (nativeAdType, nativeAdData, adButtonText) {
+                          print("nativeAdData回来了--------------------");
+                          print(nativeAdType);
+                          print(nativeAdData);
+                          print(adButtonText);
+                        },
+                      ),
+                    ),
+                  ),
+                  Text("data"),
+                ],
               ),
-//            if (showAd)
-//              SizedBox(
-//                width: 300,
-//                height: 100,
-//                child: AndroidView(
-//                  viewType: 'com.maodouyuedu.youlianghuiplugin/NativeUnifiedAD',
-//                  creationParams: {
-//                    "posId": "4091704614425969",
-//                  },
-//                  creationParamsCodec: const StandardMessageCodec(),
-//                ),
-//              ),
-//            SizedBox(
-//              width: 300,
-//              height: 100,
-//              child: AndroidView(viewType: 'com.maodouyuedu.youlianghuiplugin/NativeUnifiedAD'),
-//            ),
-//            AndroidView(
-//              viewType: 'com.maodouyuedu.youlianghuiplugin/NativeUnifiedAD',
-//              creationParams: {
-//                "posId": "通过参数传入的文本内容",
-//              },
-//              creationParamsCodec: const StandardMessageCodec(),
-//            ),
-//            Builder(builder: (context) {
-//              return RaisedButton(
-//                child: Text("打开阅读界面"),
-//                onPressed: () {
-//                  Navigator.push(
-//                    context,
-//                    MaterialPageRoute(builder: (context) => Read()),
-//                  );
-//                },
-//              );
-//            }),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.deepOrange,
-            ),
-            Divider(),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.deepOrange,
-            ),
-            Divider(),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.deepOrange,
-            ),
-            Divider(),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.deepOrange,
-            ),
-            Divider(),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.deepOrange,
-            ),
-            Divider(),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.deepOrange,
-            ),
-            Divider(),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.deepOrange,
-            ),
-            Divider(),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.deepOrange,
-            ),
-            Divider(),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.deepOrange,
-            ),
-
-//            Expanded(child: AdView(viewType: "com.maodouyuedu.youlianghuiplugin/NativeUnifiedAD",)),
-//            if (_controller?.textureId != null)
-//              SizedBox(
-//                width: 300,
-//                height: 40,
-//                child: Texture(textureId: _controller?.textureId,),
-//              )
+//               SizedBox(
+//                 width: adWidth,
+//                 height: adHeight * 2,
+//                 child: YouLiangHuiNativeExpressADView(
+//                   key: _adKey,
+// //                  posId: "1021618952336342",
+//                   posId: "6051116957071653",
+// //                  posId: "4031501690347059",
+//                   adWidth: adWidth,
+//                   adHeight: adHeight,
+//                   adEventCallback: (nativeAdData) {
+//                     print(nativeAdData);
+//                   },
+//                 ),
+//               ),
           ],
         ),
       ),

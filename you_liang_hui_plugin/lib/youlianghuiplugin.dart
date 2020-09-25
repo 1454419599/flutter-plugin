@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
-//export './you_liang_hui_native_unified_ad_view.dart';
+export './you_liang_hui_native_unified_ad_view.dart';
 export './you_liang_hui_native_express_ad_view.dart';
 
 enum ADEvent {
@@ -56,16 +56,35 @@ class Youlianghuiplugin {
     String appId, {
     String rewardVideoId,
     String splashPosId,
-//      List<String> nativeUnifiedIds,
+    List<String> nativeUnifiedIds,
     List<Map<String, dynamic>> nativeExpress,
   }) {
-    _channel.invokeMethod("initYouLiangHui", {
+    Map<String, dynamic> param = {
       "appId": appId,
-      "rewardVideoId": rewardVideoId,
-//      "nativeUnifiedIds": nativeUnifiedIds,
-      "nativeExpress": nativeExpress,
-      "splash": {"posId": splashPosId}
-    });
+    };
+    if (rewardVideoId != null) {
+      param["rewardVideoId"] = rewardVideoId;
+    }
+    if (splashPosId != null) {
+      param["splash"] = {"posId": splashPosId};
+    }
+    if (nativeUnifiedIds != null) {
+      param["nativeUnifiedIds"] = nativeUnifiedIds;
+    }
+    if (nativeExpress != null) {
+      param["nativeExpress"] = nativeExpress;
+    }
+    _channel.invokeMethod(
+      "initYouLiangHui",
+      param,
+    );
+//     _channel.invokeMethod("initYouLiangHui", {
+//       "appId": appId,
+//       "rewardVideoId": rewardVideoId,
+// //      "nativeUnifiedIds": nativeUnifiedIds,
+//       "nativeExpress": nativeExpress,
+//       "splash": {"posId": splashPosId}
+//     });
     _basicMessageChannel.setMessageHandler(messageHandler);
   }
 

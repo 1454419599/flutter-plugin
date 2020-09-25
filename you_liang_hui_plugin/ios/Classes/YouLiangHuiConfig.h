@@ -28,6 +28,7 @@ typedef enum  {
 + (NSString *) initYouLiangHuiMethodName;
 + (NSString *) showRewardVideoMethodName;
 + (NSString *) autoSplashMethodName;
++ (NSString *) nativeUnifiedViewName;
     
 + (NSString *) appId;
 + (void) appId: (NSString *) value;
@@ -43,6 +44,8 @@ typedef enum  {
 //
 //+ (NSString *) bannerId;
 //+ (void) bannerId: (NSString *) value;
+
++ (UIViewController *)findCurrentShowingViewController;
 
 + (NSDictionary *) responseSuccessData: (NSString *) methodName adStatus: (AdStatus) adStatus;
 
