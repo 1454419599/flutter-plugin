@@ -1,0 +1,32 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.xi_ma_la_ya_plugin">
+
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="n">
+        <service android:name="com.ximalaya.ting.android.opensdk.player.service.XmPlayerService"
+            android:exported="true"
+            android:process=":player"/>
+        <receiver
+            android:name="com.ximalaya.ting.android.opensdk.player.receive.PlayerReceiver"
+            android:exported="true"
+            android:process=":player">
+            <intent-filter>
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_START_PAUSE" />
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_PLAY_PRE" />
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_PLAY_NEXT" />
+                <action android:name="com.ximalaya.ting.android.ACTION_CLOSE" />
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_RELEASE_SERVICE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.example.xi_ma_la_ya_plugin.MyPlayerReceiver"
+            android:process=":player"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.app.test.android.Action_Close" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="selected_bg">#e5dcda</color>
+    <color name="textcolor">#333</color>
+    <color name="red">#ff0000</color>
+
+    <string name="xmly_music_name">随时随地 听我想听</string>
+    <string name="xmly_nick_name">喜马拉雅</string>
+</resources>
