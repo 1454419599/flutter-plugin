@@ -5,9 +5,11 @@
     <application
         android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="n">
-        <service android:name="com.ximalaya.ting.android.opensdk.player.service.XmPlayerService"
+        <service
+            android:name="com.ximalaya.ting.android.opensdk.player.service.XmPlayerService"
             android:exported="true"
-            android:process=":player"/>
+            android:process=":player" />
+
         <receiver
             android:name="com.ximalaya.ting.android.opensdk.player.receive.PlayerReceiver"
             android:exported="true"
@@ -21,11 +23,18 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.example.xi_ma_la_ya_plugin.MyPlayerReceiver"
-            android:process=":player"
+            android:name=".MyPlayerReceiverMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.app.test.android.Action_Close" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".MyPlayerReceiverPlayer"
+            android:process=":player"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.app.player.android.Action_Close" />
             </intent-filter>
         </receiver>
     </application>

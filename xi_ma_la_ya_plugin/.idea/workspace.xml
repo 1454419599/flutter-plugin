@@ -18,136 +18,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea0ca818-fefc-4196-afdf-85c1b7709bd7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/example_lib_main_dart.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/libs/TingPhoneOpenSDK_7.2.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/libs/XmDownload_2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/libs/XmlyOAuth2SDK_V2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/MyPlayerReceiver.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYa.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYaApplication.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYaPlayer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYaPlugin.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYaRequest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomAlbumListModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomCategoryModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomCommonTrackListModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomLastPlayTrackListModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomMetaDataModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomPlayableModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomTagModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomTrackListModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomTrackModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/model/CustomUpdateBatchModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/unit.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/layout/view_notify_dark_play.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/layout/view_notify_dark_play_big.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/layout/view_notify_play.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/layout/view_notify_play_big.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/values-v21/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/.metadata" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/maodouyuedu/app/AppApplication.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/maodouyuedu/app/MainActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Flutter/Debug.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Flutter/Release.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Runner-Bridging-Header.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/test/widget_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/SwiftXiMaLaYaPlugin.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/XiMaLaYaPlugin.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/XiMaLaYaPlugin.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/xi_ma_la_ya_plugin.podspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/xi_ma_la_ya_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/xi_ma_la_ya_player_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/xi_ma_la_ya_plugin.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/xi_ma_la_ya_plugin_request_param.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/xi_ma_la_ya_plugin_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xi_ma_la_ya_plugin.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/MyPlayerReceiverMain.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/MyPlayerReceiver.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/MyPlayerReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/MyPlayerReceiverPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYa.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYa.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYaApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYaApplication.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -170,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_player_controller.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="328" column="21" lean-forward="true" selection-start-line="328" selection-start-column="21" selection-end-line="328" selection-end-column="21" />
+            <state relative-caret-position="9720">
+              <caret line="328" column="21" selection-start-line="328" selection-start-column="21" selection-end-line="328" selection-end-column="21" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -182,8 +61,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_plugin.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="28" column="77" lean-forward="true" selection-start-line="28" selection-start-column="77" selection-end-line="28" selection-end-column="77" />
+            <state relative-caret-position="-622">
+              <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/android/app/src/main/kotlin/com/maodouyuedu/app/AppApplication.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -191,7 +79,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_plugin_request_param.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
+            <state relative-caret-position="3270">
               <caret line="111" column="6" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
             </state>
           </provider>
@@ -200,7 +88,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_model.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
+            <state relative-caret-position="23730">
               <caret line="791" column="6" selection-start-line="791" selection-start-column="6" selection-end-line="791" selection-end-column="6" />
             </state>
           </provider>
@@ -265,13 +153,13 @@
         <option value="$PROJECT_DIR$/example/android/app/src/main/res/xml/network_security_config.xml" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
         <option value="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/maodouyuedu/app/AppApplication.kt" />
         <option value="$PROJECT_DIR$/example/android/app/proguard-rules.pro" />
         <option value="$PROJECT_DIR$/android/src/main/kotlin/com/example/xi_ma_la_ya_plugin/XiMaLaYaPlayer.kt" />
         <option value="$PROJECT_DIR$/lib/xi_ma_la_ya_plugin_request_param.dart" />
         <option value="$PROJECT_DIR$/lib/xi_ma_la_ya_model.dart" />
         <option value="$PROJECT_DIR$/lib/xi_ma_la_ya_plugin.dart" />
         <option value="$PROJECT_DIR$/lib/xi_ma_la_ya_player_controller.dart" />
+        <option value="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/maodouyuedu/app/AppApplication.kt" />
       </list>
     </option>
   </component>
@@ -288,7 +176,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -354,8 +242,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -403,7 +291,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23454158" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23454158" />
       <window_info id="Captures" order="1" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -413,10 +301,10 @@
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="1" weight="0.3308026" />
+      <window_info active="true" anchor="bottom" id="Run" order="1" visible="true" weight="0.48264644" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.69739693" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Logcat" order="4" weight="0.345987" />
+      <window_info anchor="bottom" id="Logcat" order="4" weight="0.3373102" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.70390457" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.38503253" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -638,13 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/android/app/src/main/kotlin/com/maodouyuedu/app/AppApplication.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/android/gradle.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -679,34 +560,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_plugin_request_param.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="111" column="6" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="791" column="6" selection-start-line="791" selection-start-column="6" selection-end-line="791" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_player_controller.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="328" column="21" lean-forward="true" selection-start-line="328" selection-start-column="21" selection-end-line="328" selection-end-column="21" />
+        <state relative-caret-position="9720">
+          <caret line="328" column="21" selection-start-line="328" selection-start-column="21" selection-end-line="328" selection-end-column="21" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_plugin_request_param.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3270">
+          <caret line="111" column="6" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23730">
+          <caret line="791" column="6" selection-start-line="791" selection-start-column="6" selection-end-line="791" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/android/app/src/main/kotlin/com/maodouyuedu/app/AppApplication.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/xi_ma_la_ya_plugin.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="28" column="77" lean-forward="true" selection-start-line="28" selection-start-column="77" selection-end-line="28" selection-end-column="77" />
+        <state relative-caret-position="-622">
+          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
         </state>
       </provider>
     </entry>

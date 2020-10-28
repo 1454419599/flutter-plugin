@@ -47,7 +47,7 @@ object XiMaLaYa {
             return
         }
 
-        with(XmPlayerManager.getInstance(mContext)) {
+        with(XiMaLaYaPlayer.mPlayerManager) {
             NotificationColorUtils.isTargerSDKVersion24More = true
             val mNotification = XmNotificationCreater.getInstanse(mContext).initNotification(mContext.applicationContext, mActivity.javaClass)
             init(System.currentTimeMillis().toInt(), mNotification)

@@ -11,7 +11,7 @@ open class XiMaLaYaApplication {
         if (BaseUtil.isPlayerProcess(context)) {
             with(XmNotificationCreater.getInstanse(context)) {
                 val intent = Intent("com.app.test.android.Action_Close")
-                intent.setClass(context, MyPlayerReceiver::class.java)
+                intent.setClass(context, MyPlayerReceiverMain::class.java)
                 val broadcast = PendingIntent.getBroadcast(context, 0, intent, 0)
                 setClosePendingIntent(broadcast)
             }
