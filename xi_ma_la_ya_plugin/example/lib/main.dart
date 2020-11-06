@@ -138,13 +138,14 @@ class _MyAppState extends State<MyApp> {
 
   void _getMetadataAlbumList() async {
     var result = await XiMaLaYaPlugin.getMetadataAlbumList(
-        XmMetadataAlbumListParam(categoryId: selectCategory.id, calcDimension: 1));
+        XmMetadataAlbumListParam(
+            categoryId: selectCategory.id, calcDimension: 1));
     print(result);
   }
 
   void _setPlayListAndPlay() async {
-    var result = await xmPlayerController.setPlayListAndPlay(
-        XmPlayListAndPlayParam(playList: xmTrack));
+    var result = await xmPlayerController
+        .setPlayListAndPlay(XmPlayListAndPlayParam(playList: xmTrack));
     print(result);
   }
 
@@ -155,19 +156,14 @@ class _MyAppState extends State<MyApp> {
         home: Scaffold(
           appBar: AppBar(
 //          title: Text(xmPlayerController.isPlay.toString()),
-            title: Text(
-                XmPlayerControllerModel.of(context)
-                    .isPlay
-                    .toString()),
+            title: Text(XmPlayerControllerModel.of(context).isPlay.toString()),
           ),
           body: ListView(
             children: [
               Text(XmPlayerControllerModel.of(context).playProgress.toString()),
               RaisedButton(
                 onPressed: () {
-                  print(XmPlayerControllerModel.of(
-                      context)
-                      .isPlay);
+                  print(XmPlayerControllerModel.of(context).isPlay);
 //                        XmPlayerControllerInheritedStateContainer.of(context).data = XmPlayerControllerInheritedStateContainer.of(context).data+1;
                 },
                 child: Text("更改"),
@@ -268,6 +264,10 @@ class _MyAppState extends State<MyApp> {
               RaisedButton(
                 onPressed: _getMetadataAlbumList,
                 child: Text("获取元数据属性键值组合"),
+              ),
+              RaisedButton(
+                onPressed: xmPlayerController.playNext,
+                child: Text("下一首"),
               ),
             ],
           ),

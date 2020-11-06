@@ -13,11 +13,27 @@ A new flutter plugin project.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = [
+    'XiMaLaYaSDK/include/**/*.{h}', 
+    'Classes/**/*'
+  ]
+  s.public_header_files = [
+    'XiMaLaYaSDK/include/**/*.{h}',
+    'Classes/**/*.h'
+  ]
   s.dependency 'Flutter'
   s.platform = :ios, '8.0'
+  s.frameworks = [
+    'SystemConfiguration', 
+    'CoreTelephony'
+  ]
+  s.libraries = "z"
+  s.vendored_libraries = [
+    'XiMaLaYaSDK/*.{a}'
+  ]
+  s.resource = 'XiMaLaYaSDK/include/Resource/XMResource.bundle'
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
-  s.swift_version = '5.0'
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64', 'OTHER_LDFLAGS' => '-ObjC' }
+  s.swift_version = '5.3'
 end
