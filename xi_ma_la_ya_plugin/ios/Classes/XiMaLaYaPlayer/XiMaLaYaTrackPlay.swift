@@ -15,12 +15,20 @@ class XiMaLaYaTrackPlay: NSObject, XMTrackPlayerDelegate {
     func xmTrackPlayNotifyProcess(_ percent: CGFloat, currentSecond: UInt) {
 //        print("播放时被调用，频率为1s，告知当前播放进度和播放时间 \(percent) / \(currentSecond)")
         XiMaLaYaPlayer.updateMPNowPlayingInfo()
-        XiMaLaYaPlayer.sendData(playerData: XiMaLaYaPlayer.PlayerData(type: .playNotifyProcess, data: ["currPos": currentSecond, "percent": percent]))
+        XiMaLaYaPlayer.sendData(playerData: XiMaLaYaPlayer.PlayerData(type: .playNotifyProcess, data: [
+            "currPos": currentSecond,
+            "percent": percent,
+            "duration": XiMaLaYaPlayer.player?.currentTrack()?.duration ?? 0
+        ]))
     }
     //播放时被调用，告知当前播放器的缓冲进度
     func xmTrackPlayNotifyCacheProcess(_ percent: CGFloat) {
 //        print("播放时被调用，告知当前播放器的缓冲进度 \(percent)")
-        XiMaLaYaPlayer.sendData(playerData: XiMaLaYaPlayer.PlayerData(type: .playNotifyCacheProcess, data: ["percent": percent]))
+        var p: Int = 0;
+        if let duration = XiMaLaYaPlayer.player?.currentTrack()?.duration {
+            p = Int(CGFloat(duration) * percent)
+        }
+        XiMaLaYaPlayer.sendData(playerData: XiMaLaYaPlayer.PlayerData(type: .playNotifyCacheProcess, data: p))
     }
     //播放列表结束时被调用
     func xmTrackPlayerDidPlaylistEnd() {
@@ -54,12 +62,12 @@ class XiMaLaYaTrackPlay: NSObject, XMTrackPlayerDelegate {
     }
     //切换声音时调用
     func xmTrackPlayerDidChange(to track: XMTrack!) {
-        print("切换声音时调用")
+        print("切换声音时调用: ", XMSDKPlayer.hasNextTrack())
         XiMaLaYaPlayer.updateMPNowPlayingInfo(isChange: true)
-//        XiMaLaYaPlayer.sendData(playerData: XiMaLaYaPlayer.PlayerData(type: .playerDidChange, data: [
-//            "lastKind": track?.kind ?? "",
-//            "last": track.toMap()
-//        ]))
+        XiMaLaYaPlayer.sendData(playerData: XiMaLaYaPlayer.PlayerData(type: .playerDidChange, data: [
+            "curKind": track?.kind ?? "",
+            "cur": fromXMTrack(xmTrack: track)
+        ]))
     }
     //播放失败时调用
     func xmTrackPlayerDidFailed(toPlay track: XMTrack!, withError error: Error!) {

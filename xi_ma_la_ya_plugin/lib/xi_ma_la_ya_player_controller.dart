@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -255,6 +257,9 @@ class XmPlayerController extends ChangeNotifier {
       case XmPlayerEvent.soundSwitch:
         _setSoundSwitch(param.data);
         break;
+      case XmPlayerEvent.soundPlayComplete:
+        _listPlayEnd();
+        break;
       default:
     }
     _notifyPlayerStatusListeners(param);
@@ -339,6 +344,17 @@ class XmPlayerController extends ChangeNotifier {
         if (currentPlayIndex >= currentPlayList.length - 2)
           cacheNextXmCommonTrackListCallback?.call();
       }
+    }
+  }
+
+  /// iOS 列表播放完成
+  void _listPlayEnd() {
+    if (Platform.isIOS) {
+      var trackListListIndex = (currentPlayIndex + 1) ~/ pageCount;
+      setPlayCommonTrackListAndPlay(
+        XmPlayCommonTrackListAndPlayParam(
+            commonTrackList: currentXmCommonTrackListList[trackListListIndex]),
+      );
     }
   }
 

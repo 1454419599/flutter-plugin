@@ -48,6 +48,8 @@ class XiMaLaYaPlayer: NSObject {
                 player?.seek(toTime: CGFloat(data as! Int))
 //            case "setVolume":
 //                player?.setVolume(<#T##volume: Float##Float#>)
+            case "setPlayList":
+                setPlayList(tracks: data as? [[String : Any]])
             case "setPlayListAndPlay":
                 setPlayListAndPlay(data: data as! [String : Any], result: result)
             case "setPlayCommonTrackListAndPlay":
@@ -116,9 +118,24 @@ class XiMaLaYaPlayer: NSObject {
         return playerStateIndex
     }
     
+    static func setPlayList(tracks: [[String: Any]]?) {
+        if let arr = tracks {
+            let trackList = arr.map {
+                xmTrackFromDictionary(dictionary: $0)
+            }
+            print("setPlayList-----------")
+            print("player?.playList", player?.playList()?.count)
+            print("trackList", trackList.count)
+            player?.replacePlayList(trackList)
+            print("player?.playList", player?.playList()?.count)
+            print("hasNextTrack", XMSDKPlayer.hasNextTrack())
+        }
+    }
+    
     static func setPlayListAndPlay(data: [String: Any], result: @escaping FlutterResult) {
         if let playList = data["playList"] as? Array<[String: Any]>, let index = data["index"] as? Int {
             let tracksList = playList.map() { xmTrackFromDictionary(dictionary: $0) }
+            XiMaLaYa.sharedInstance.initPlayerManager()
             player?.play(with: tracksList[index], playlist: tracksList)
         } else {
             print("setPlayListAndPlay 参数验证失败")
@@ -128,8 +145,10 @@ class XiMaLaYaPlayer: NSObject {
     static func setPlayCommonTrackListAndPlay(data: [String: Any], result: @escaping FlutterResult) {
         if let commonTrackList = data["commonTrackList"] as? [String: Any], let index = data["index"] as? Int {
             let tracksList = XMTracksList(dictionary: commonTrackList)
-            if let trackId = tracksList.tracks?[index].trackId {
-                player?.continuePlay(fromAlbum: tracksList.albumId, track: trackId)
+            if let track = tracksList.tracks?[index] {
+                XiMaLaYa.sharedInstance.initPlayerManager()
+//                player?.continuePlay(fromAlbum: track.subordinatedAlbum.albumId, track: track.trackId)
+                player?.play(with: track, playlist: tracksList.tracks)
             } else {
                 print("setPlayCommonTrackListAndPlay trackId 参数验证失败")
             }

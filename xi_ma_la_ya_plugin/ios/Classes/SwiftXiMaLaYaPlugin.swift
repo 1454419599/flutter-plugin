@@ -6,6 +6,7 @@ public class SwiftXiMaLaYaPlugin: NSObject, FlutterPlugin {
     let channel = FlutterMethodChannel(name: "xi_ma_la_ya_plugin", binaryMessenger: registrar.messenger())
     let instance = SwiftXiMaLaYaPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
+    XiMaLaYa.channel = channel
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -99,7 +100,7 @@ public class SwiftXiMaLaYaPlugin: NSObject, FlutterPlugin {
             let page = Int(arg["page"]!)!
             let count = Int(arg["count"]!)!
             let calcDimension = Int(arg["calcDimension"]!)!
-            let metadataAttribute = arg["metadataAttribute"]
+            let metadataAttribute = arg["metadataAttributes"]
             getMetadataAlbumsList(categoryId: categoryId, page: page, count: count, calcDimension: calcDimension, metadataAttribute: metadataAttribute, result: result)
         } else {
             result(FlutterError.init(code: "0", message: "getMetadataAlbums arguments as? Dictionary<String, String>", details: nil))

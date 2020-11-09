@@ -11,6 +11,8 @@ class XiMaLaYa: NSObject, XMReqDelegate {
 
     static var channel: FlutterMethodChannel? = nil
     static let sharedInstance = XiMaLaYa()
+    
+    var isInit: Bool = false;
 
     func initXiMaLaYa(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         if let arg = call.arguments as? Dictionary<String, String> {
@@ -22,6 +24,10 @@ class XiMaLaYa: NSObject, XMReqDelegate {
     }
 
     func initPlayerManager() {
+        if isInit {
+            return
+        }
+        isInit = true
         XiMaLaYaPlayer.player?.setAutoNexTrack(true)
         XiMaLaYaPlayer.player?.setPlayMode(.track)
         XiMaLaYaPlayer.player?.setTrackPlayMode(.XMTrackPlayerModeList)

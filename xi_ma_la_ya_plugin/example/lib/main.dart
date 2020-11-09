@@ -21,6 +21,7 @@ class _MyAppState extends State<MyApp> {
   XmAlbum selectAlbum;
 
   List<XmTrack> xmTrack;
+  XmTrackList _xmTrackList;
   XmTrack selectTrack;
 
   XmPlayerController xmPlayerController;
@@ -117,6 +118,7 @@ class _MyAppState extends State<MyApp> {
       setState(() {
         selectTrack = result.tracks[0];
         xmTrack = result.tracks;
+        _xmTrackList = result;
       });
     }
   }
@@ -146,6 +148,15 @@ class _MyAppState extends State<MyApp> {
   void _setPlayListAndPlay() async {
     var result = await xmPlayerController
         .setPlayListAndPlay(XmPlayListAndPlayParam(playList: xmTrack));
+    print(result);
+  }
+
+  void _setPlayCommonTrackListAndPlay(int index) async {
+    var result = await xmPlayerController
+        .setPlayCommonTrackListAndPlay(XmPlayCommonTrackListAndPlayParam(
+      commonTrackList: _xmTrackList,
+      index: index,
+    ));
     print(result);
   }
 
@@ -246,7 +257,8 @@ class _MyAppState extends State<MyApp> {
                       setState(() {
                         selectTrack = it;
                       });
-                      _setPlayListAndPlay();
+                      _setPlayCommonTrackListAndPlay(0);
+                      // _setPlayListAndPlay();
                     },
                   ),
               RaisedButton(

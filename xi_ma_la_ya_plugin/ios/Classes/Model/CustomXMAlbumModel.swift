@@ -21,7 +21,7 @@ func fromXMAlbumDictionary(xmAlbum: XMAlbum) -> [String: Any?] {
         "playCount": xmAlbum.playCount,
         "favoriteCount": xmAlbum.favoriteCount,
         "includeTrackCount": xmAlbum.includeTrackCount,
-        "lastUptrack": fromXMLastUptrackDictionary(xmLastUptrack: xmAlbum.lastUptrack),
+        "lastUpTrack": fromXMLastUptrackDictionary(xmLastUptrack: xmAlbum.lastUptrack),
         "isFinished": xmAlbum.isFinished,
         "updatedAt": Int(xmAlbum.updatedAt),
         "createdAt": Int(xmAlbum.createdAt),
@@ -45,7 +45,7 @@ func xmAlbumFromDictionary(dictionary: [String: Any]?) -> XMAlbum? {
         xmAlbum.playCount = obj["playCount"] as! Int
         xmAlbum.favoriteCount = obj["favoriteCount"] as! Int
         xmAlbum.includeTrackCount = obj["includeTrackCount"] as! Int
-        xmAlbum.lastUptrack = XMLastUptrackFromDictionary(dictionary: obj["lastUptrack"] as? [String : Any])
+        xmAlbum.lastUptrack = XMLastUptrackFromDictionary(dictionary: obj["lastUpTrack"] as? [String : Any])
         xmAlbum.isFinished = obj["isFinished"] as! Int
         xmAlbum.updatedAt = obj["updatedAt"] as! Double
         xmAlbum.createdAt = obj["createdAt"] as! Double

@@ -122,9 +122,9 @@ class XMTracksList {
     var tracks: [XMTrack]?;
     
     init(dictionary: [String: Any?]) {
-        self.albumId = dictionary["albumId"] as! Int;
+        self.albumId = dictionary["albumId"] as? Int ?? 0;
         self.albumTitle = dictionary["albumTitle"] as? String;
-        self.categoryId = dictionary["categoryId"] as! Int;
+        self.categoryId = dictionary["categoryId"] as? Int ?? 0;
         self.albumIntro = dictionary["albumIntro"] as? String;
         self.coverUrlLarge = dictionary["coverUrlLarge"] as? String;
         self.coverUrlMiddle = dictionary["coverUrlMiddle"] as? String;
@@ -132,7 +132,7 @@ class XMTracksList {
         self.currentPage = dictionary["currentPage"] as! Int;
         self.totalPage = dictionary["totalPage"] as! Int;
         self.totalCount = dictionary["totalCount"] as! Int;
-        if let tracks = dictionary["totalCount"] as? [[String : Any]] {
+        if let tracks = dictionary["tracks"] as? [[String : Any]] {
             self.tracks = tracks.map {
                 xmTrackFromDictionary(dictionary: $0)
             }

@@ -1,6 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - xi_ma_la_ya_plugin (0.0.1):
+  - xi_ma_la_ya_plugin (0.0.2):
     - Flutter
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  xi_ma_la_ya_plugin: 5d3592d285c9e5e0354037255c25ea9b47c6f9f3
+  xi_ma_la_ya_plugin: 6c7c3d458a015b62d15c657cc9c1016598d6bc14
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 

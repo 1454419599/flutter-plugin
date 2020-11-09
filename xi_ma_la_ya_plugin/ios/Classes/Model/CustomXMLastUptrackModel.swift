@@ -10,11 +10,11 @@ import Foundation
 func fromXMLastUptrackDictionary(xmLastUptrack: XMLastUptrack?) -> [String: Any?]? {
     if let value = xmLastUptrack {
         return [
-            "duration": value.duration,
+            "duration": Int(value.duration),
             "trackId": value.trackId,
             "trackTitle": value.trackTitle,
-            "updatedAt": value.updatedAt,
-            "createdAt": value.createdAt,
+            "updatedAt": Int(value.updatedAt),
+            "createdAt": Int(value.createdAt),
             "canDownload": value.canDownload,
         ]
     }
@@ -24,11 +24,11 @@ func fromXMLastUptrackDictionary(xmLastUptrack: XMLastUptrack?) -> [String: Any?
 func XMLastUptrackFromDictionary(dictionary: [String: Any]?) -> XMLastUptrack? {
     if let obj = dictionary {
         let xmLastUptrack = XMLastUptrack()
-        xmLastUptrack.duration = obj["duration"] as! CGFloat
+        xmLastUptrack.duration = CGFloat(obj["duration"] as! Int)
         xmLastUptrack.trackId = obj["trackId"] as! Int
         xmLastUptrack.trackTitle = obj["trackTitle"] as? String
-        xmLastUptrack.updatedAt = obj["updatedAt"] as! Double
-        xmLastUptrack.createdAt = obj["createdAt"] as! Double
+        xmLastUptrack.updatedAt = Double(obj["updatedAt"] as! Int)
+        xmLastUptrack.createdAt = Double(obj["createdAt"] as! Int)
         if let v = obj["canDownload"] as? Bool {
             xmLastUptrack.canDownload = v
         } else {
